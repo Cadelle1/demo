@@ -16,7 +16,7 @@
 
 <view class="v3">步数：{{step}}</view>
 <view class="v4">耗时：{{m}}:{{s}}</view>
-<view class="v5">历史最快记录：{{fm}}:{{fs}}</view>
+<view class="v5">历史最快记录：{{fm[this.data.nowDifficulty-3]}}:{{fs[this.data.nowDifficulty-3]}}</view>
 
 <view bindtap="goGame" class="f_center game">开始游戏</view>
 <view bindtap="reset" class="f_center reset">重置</view>
