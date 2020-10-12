@@ -76,16 +76,16 @@ Page({
 				});
 				this.setData({
 					//存下最快纪录
-					fm[this.data.nowDifficulty-3]:
+					[fm[this.data.nowDifficulty-3]]:
 						parseInt(this.data.fm[this.data.nowDifficulty-3]) * 60 + parseInt(this.data.fs[this.data.nowDifficulty-3]) >=
 						parseInt(m) * 60 + parseInt(s)
 							? m
 							: fm[this.data.nowDifficulty-3],
-					fs:
-						parseInt(this.data.fm) * 60 + parseInt(this.data.fs) >=
+					[fs[this.data.nowDifficulty-3]]:
+						parseInt(this.data.fm[this.data.nowDifficulty-3]) * 60 + parseInt(this.data.fs[this.data.nowDifficulty-3]) >=
 						parseInt(m) * 60 + parseInt(s)
 							? s
-							: fs,
+							: fs[this.data.nowDifficulty-3],
 				});
 			}
 		}
