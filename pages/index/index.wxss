@@ -3,9 +3,10 @@ page {
 }
 
 .container {
-    width: 454rpx;
-    height: 454rpx;
-    border: 20rpx solid #0f4ab8;
+    margin-top: 30px;
+    width: 450rpx;
+    height: 450rpx;
+    border: 20rpx solid rgba(122, 66, 20, 0.767);
     overflow: hidden;
     display: flex;
     flex-wrap: wrap;
@@ -17,10 +18,12 @@ page {
 .v1 {
     width: 150rpx;
     height: 150rpx;
-    font-size: 70rpx;
+    color:rgba(122, 66, 20, 0.973);
+    font-size:70rpx;
     font-weight: 600;
     position: relative;
-    border-radius: 15rpx;
+    border-radius: 10rpx;
+    border-color: rgba(80, 44, 14, 0.973);
 }
 
 .v1 view {
@@ -39,34 +42,45 @@ page {
 }
 
 .v3 {
-    font-size: 34rpx;
+    color: #884f26;
+    font-weight: 550;
+    font-size: 32rpx;
     margin: 20rpx 0;
 }
 
 .v4 {
-    font-size: 34rpx;
-    margin-bottom: 20rpx;
+    color: rgb(134, 77, 35);
+    font-weight: 550;
+    font-size: 32rpx;
+    margin-bottom:15rpx;
 }
 
 .v5 {
-    font-size: 34rpx;
-    margin-bottom: 30rpx;
+    color: rgb(134, 77, 35);
+    font-weight: 550;
+    font-size: 32rpx;
+    margin-bottom: 15rpx;
+    margin-top: 2px;
 }
 .game {
     width: 300rpx;
-    height: 80rpx;
-    background: #126ace;
+    height: 90rpx;
+    background: rgba(122, 66, 20, 0.767);
     color: #fff;
     border-radius: 20rpx;
-    font-size: 36rpx;
+    font-size: 40rpx;
+    font-weight: 550;
+    margin-top: 3px;
 }
 
 .reset {
     width: 300rpx;
-    height: 80rpx;
-    background: #126ace;
+    height: 90rpx;
+    background: rgba(122, 66, 20, 0.767);
     color: #fff;
     border-radius: 20rpx;
-    font-size: 36rpx;
+    font-size: 40rpx;
+    font-weight: 550;
     margin: 20rpx 0;
+    margin-bottom: 5px;
 }

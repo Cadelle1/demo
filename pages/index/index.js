@@ -4,6 +4,7 @@ innerAudioContext.src = "/audio/click.mp3";
 function isGoal(data_, pos) {
 	return data_[pos] && data_[pos].isEmpty;
 }
+
 Page({
 	data: {
 		windowWidth: app.windowWidth, // 屏幕宽度
@@ -11,7 +12,7 @@ Page({
 		numData: [],
 		m: "00", // 分
 		s: "00", // 秒
-		fm: ["60","60","60","60"],
+		fm: ["60","60","60","60"],//最快纪录初始值
 		fs: ["00","00","00","00"],
 		step: 0, // 步数
 		nowDifficultyDef: 3, // 默认当前难度系数 -- 注意这个值要和初始的 当前难度系数的值一样
@@ -27,7 +28,7 @@ Page({
 	isStart: false,
 	goGame() {
 		if (this.isStart) return;
-
+		
 		this.isStart = true;
 		this.isPass = false;
 		this.setData({
@@ -55,6 +56,10 @@ Page({
 		let s = this.data.s; ///
 		let numData = this.data.numData;
 		// 如果最后一格为空的话 并且 倒数第二格值正确的话，再计算游戏是否结束
+		let fm_path = "fm["+(this.data.nowDifficulty-3)+"]";
+		let fs_path = "fs["+(this.data.nowDifficulty-3)+"]";
+		let fm_val;
+		let fs_val;
 		if (numData[numData.length - 1].isEmpty &&numData[numData.length - 2].num==numData.length - 1) {
 			let flg = true; // 是否结束
 			for (let y in numData) {
@@ -74,18 +79,16 @@ Page({
 					content: "您已过关啦！",
 					showCancel: false,
 				});
+				if(this.data.fm[this.data.nowDifficulty-3]*60+this.data.fs[this.data.nowDifficulty-3]>=parseInt(m) *60+parseInt(s)){
+					fm_val=m;
+					fs_val=s;
+				}else{
+					fm_val=fm[this.data.fm[this.data.nowDifficulty-3]]
+					fs_val=fs[this.data.fs[this.data.nowDifficulty-3]]
+				}
 				this.setData({
-					//存下最快纪录
-					[fm[this.data.nowDifficulty-3]]:
-						parseInt(this.data.fm[this.data.nowDifficulty-3]) * 60 + parseInt(this.data.fs[this.data.nowDifficulty-3]) >=
-						parseInt(m) * 60 + parseInt(s)
-							? m
-							: fm[this.data.nowDifficulty-3],
-					[fs[this.data.nowDifficulty-3]]:
-						parseInt(this.data.fm[this.data.nowDifficulty-3]) * 60 + parseInt(this.data.fs[this.data.nowDifficulty-3]) >=
-						parseInt(m) * 60 + parseInt(s)
-							? s
-							: fs[this.data.nowDifficulty-3],
+					[fm_path]:fm_val,
+					[fs_path]:fs_val,
 				});
 			}
 		}
